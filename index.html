@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cerveza y Fútbol</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #000000, #1a1a1a, #222, #333);
+            background-size: 400% 400%;
+            animation: fondoAnimado 10s ease infinite;
+            margin: 0;
+            padding: 0;
+            display: none; /* Oculta la página hasta que se verifique la contraseña */
+        }
+
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background: #d32f2f;
+            color: yellow;
+            padding: 15px;   
+            font-size: 48px;
+            font-weight: 900;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            box-shadow: 0px 5px 10px rgba(255, 255, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            width: 200%;
+            border: 3px groove #000000;
+            border-radius: 30px;
+            font-size: 15px;
+            background: #fff;
+            transition: 0.3s;
+            align-items: center;
+            margin-left: -100px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .decorado-boton {
+            padding: 12px 25px;
+            background-color: yellow; /* Color de fondo */
+            color: red; /* Color del texto */
+            border: none; /* Sin borde */
+            border-radius: 20px; /* Bordes redondeados */
+            font-size: 20px; /* Tamaño de fuente */
+            font-weight: bold; /* Negrita */
+            cursor: pointer; /* Cursor tipo puntero */
+            text-transform: uppercase; /* Texto en mayúsculas */
+            transition: all 0.3s ease; /* Transición suave para efectos */
+        }
+
+        /* Efectos cuando el botón es hover (cuando el ratón pasa sobre él) */
+        .decorado-boton:hover {
+            background-color: #FDFD96; /* Cambia el color de fondo al pasar el mouse */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor del botón */
+            transform: translateY(-5px); /* Levanta el botón un poco */
+        }
+
+        /* Efecto al hacer clic (presionar el botón) */
+        .decorado-boton:active {
+            transform: translateY(2px); /* El botón se "presiona" hacia abajo */
+            box-shadow: none; /* Elimina la sombra */
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 12px 12px 25px rgba(255,0,0,0.5);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .noticia {
+            border-bottom: 5px inset #000000;
+            padding: 15px 0;
+            display: flex;
+            align-items: center; /* Alineación horizontal */
+        }
+
+        .noticia img {
+            width: 150px;
+            height: 150px;
+            margin-right: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .noticia img:hover {
+            transform: scale(1.1);
+        }
+
+        .noticia h2 {
+            color: #d32f2f;
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .noticia p {
+            color: #666;
+            font-size: 24px;
+        }
+
+        .noticia a {
+            text-decoration: none;
+            color: #d32f2f;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .noticia a:hover {
+            color: yellow;
+        }
+
+        /* Media Queries para móviles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            header {
+                font-size: 40px;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+            }
+            .container {
+                width: 100%;
+                padding: 15px;
+                box-shadow: 20px 20px 20px rgba(255,0,0,0.6);
+            }
+            .noticia img {
+                width: 120px;
+                height: 120px;
+            }
+            .noticia h2 {
+                font-size: 25px;
+            }
+            .noticia p {
+                font-size: 15px;
+            }
+            .search-box input {
+                font-size: 15px;
+                justify-content: center;
+                width: 80%;
+                margin-left: 4%;
+            }
+            .decorado-boton {
+                width: 30%; /* El botón ocupará todo el ancho disponible en pantallas pequeñas */
+                height: 5%;
+                padding: 15px; /* Aumenta el padding para hacerlo más grande y fácil de tocar en pantallas pequeñas */
+                font-size: 18px; /* Aumenta el tamaño de la fuente en móviles */
+                text-align: center; /* Centra el texto dentro del botón */
+                margin-top: 5%
+                }
+
+        }
+    </style>
+    <script>
+        function verificarContraseña() {
+            let contraseña = prompt("🔒 Introduce la contraseña para acceder:");
+            if (contraseña === "1234") {  // Cambia "1234" por tu contraseña real
+                document.body.style.display = "block"; // Muestra la página
+                setTimeout(() => {
+                    document.querySelector(".container").style.opacity = "1";
+                }, 100);
+            } else {
+                alert("❌ Contraseña incorrecta. Acceso denegado.");
+                window.location.href = "https://google.com"; // Redirige si la clave es incorrecta
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            verificarContraseña();
+        });
+
+        function buscarNoticias() {
+            let input = document.getElementById('buscar').value.toLowerCase();
+            let noticias = document.getElementsByClassName('noticia');
+            
+            for (let i = 0; i < noticias.length; i++) {
+                let titulo = noticias[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+                if (titulo.includes(input)) {
+                    noticias[i].style.display = "block";
+                } else {
+                    noticias[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Cerveza y Fútbol
+        <div class="search-box">
+            <input type="text" id="buscar" placeholder="Buscar noticias..." onkeyup="buscarNoticias()">
+        </div>
+        <div
+            <button type="button" onclick="window.location.href="login.html" class="decorado-boton">login</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="noticia"> 
+            <img src="Guiro.jpg" alt="Imagen de la noticia 1">
+            <div>
+                <h2><a href="noticia1.html">El lateral de moda de CD El Casar</a></h2>
+                <p>Por sus balones y no hablando en términos futbolísticos, Roig se convierte en la nueva estrella del pueblo Alcarreño.</p>
+            </div>
+        </div>
+        <div class="noticia">
+            <img src="Fran.jpg" alt="Imagen de la noticia 2">
+            <div>
+                <h2><a href="noticia2.html">El gran misterio de Fran Anton</a></h2>
+                <p>El gran casareño Francisco, lleva sin ser determinante en varios partidos en el juvenil. ¿A qué se debe esto?</p>
+            </div>
+        </div>
+        <div class="noticia">
+            <img src="Casar.jpg" alt="Imagen de la noticia 3">
+            <div>
+                <h2><a href="noticia3.html">Play Offs: El Casar se pone a prueba</a></h2>
+                <p>El Casar se encuentra en el punto de mira, dispuesto a jugar el momento más importante de la temporada. ¿Está preparado para el reto?</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
