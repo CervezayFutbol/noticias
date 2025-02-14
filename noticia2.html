@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gran victoria del Real Madrid en el clásico</title>
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            text-align: justify;
+        }
+        header {
+            background: #d32f2f;
+            color: yellow;
+            padding: 15px;
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            width: 100%;
+            position: sticky;
+            top: 0;
+        }
+        }
+        h1 {
+            text-align: center;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            margin: 50px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 12px 12px 45px rgba(255,0,0,0.5);
+        }
+        .noticia {
+            display: flex; /* Utilizamos flexbox para organizar la imagen y el texto */
+            align-items: center; /* Alineamos verticalmente el contenido */
+        }
+        .noticia img {
+            width: 300px; /* Ancho de la imagen */
+            height: auto; /* Mantener la proporción */
+            border-radius: 5px; /* Esquinas redondeadas */
+            margin-right: 20px; /* Espacio entre la imagen y el texto */
+            box-shadow: 12px 12px 45px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+        }
+        .noticia h1 {
+            color: #d32f2f;
+            text-align: center;
+        }
+        .noticia p {
+            color: #333;
+            line-height: 1.6;
+        }
+        /* Estilo para los enlaces de la parte inferior */
+        .links-container {
+            display: flex;
+            justify-content: space-between; /* Alinea los enlaces a los extremos */
+            margin-top: 20px;
+        }
+        .alink a {
+            color: #d32f2f; /* Color del enlace "Volver a la página principal" */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Contenedor para las imágenes apiladas */
+        .imagenes-container {
+            display: flex;
+            flex-direction: column; /* Apilamos las imágenes verticalmente */
+            align-items: flex-start; /* Alineamos las imágenes a la izquierda */
+        }
+        .imagen-texto {
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer; /* Aparece el puntero para indicar que es clickeable */
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+        .imagen-extra {
+            display: none; /* Inicialmente la imagen está oculta */
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 12px 12px 45px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+            margin-top: 20px;
+        }
+
+        /* MEDIA QUERIES para dispositivos móviles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px; /* Reducimos el tamaño del texto */
+            }
+            header {
+                font-size: 24px;
+            }
+            .container {
+                width: 100%; /* Aumentamos el ancho del contenedor */
+                padding: 10px; /* Menos espacio en los márgenes */
+            }
+            .noticia {
+                flex-direction: column; /* Hacemos que el contenido sea vertical en pantallas pequeñas */
+                align-items: flex-start; /* Alineamos el texto a la izquierda */
+            }
+            .noticia img {
+                width: 100%; /* Hacemos que la imagen ocupe todo el ancho del contenedor */
+                margin-bottom: 15px; /* Añadimos margen en la parte inferior de la imagen */
+            }
+            p {
+                margin: 20px 0; /* Reducimos el margen de los párrafos */
+                font-size: 20px;
+            }
+            .links-container {
+                flex-direction: column; /* Colocamos los enlaces en columna */
+                align-items: center; /* Centramos los enlaces */
+                margin-top: 10px;
+            }
+            .noticia img {
+                margin-left: 15%;
+            }
+            .back-link a, .next-article a {
+                font-size: 16px; /* Reducimos el tamaño de los enlaces */
+            }
+            .imagen-texto {
+                margin-left: 35%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Cerveza y Fútbol
+    </header>
+    <div class="container">
+        <div class="noticia">
+            <!-- Contenedor de las imágenes apiladas -->
+            <div class="imagenes-container">
+                <!-- Imagen de la noticia a la izquierda -->
+                <img src="img/Fran.jpg" alt="Imagen de la noticia 2" style="width: 300px; height: auto; border-radius: 5px;">
+                <!-- "Hola gente" en lugar de la imagen adicional -->
+                <div class="imagen-texto" onclick="mostrarImagen()"> <span style="color: red; text-decoration: underline; text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.5);">→ PACONAZI ←</span></div>
+                <!-- Imagen que se muestra al hacer clic -->
+                <img id="imagenExtra" src="img/NN.jpg" class="imagen-extra" alt="Imagen adicional" style="width: 300px; height: auto; border-radius: 5px;">
+            </div>
+            <div>
+                <h1>El gran misterio de Fran Antón</h1>
+                <p><b>Francisco Antón</b> o conocido también como el Paco García del <b>lateral derecho</b>. Es un chaval de <b>16 años</b>, que en las últimas semanas su nombre ha <b>sonado alto</b>. A lo largo de estas últimas semanas, aparecieron diferentes <b>hipotesis</b> sobre él, cada cual más rara que la anterior. La más clara de todas ellas es que <b>pertenece a una banda</b> <a href="https://www.youtube.com/watch?v=QX3t8A2nPsM&pp=ygUPaGltbm8gZGUgaGl0bGVy" target="_blank">NEONAZI</a>, o a la asociación <a href="https://www.nucleonacionalesp.com/" target="_blank">Nucleo Nacional</a>. Estas ideas surgen a partir de descubrimientos realizados por la <a href="https://policia.es/_es/index.php#" target="_blank">Policía Nacional</a> <b>Española</b> en los cuáles llegamos a observar diferentes símbolos <b>NAZI</b> realizados con sus <b>propias manos</b>, como <a href="https://es.wikipedia.org/wiki/Simbolog%C3%ADa_nacionalsocialista" target="_blank">"ESBÁSTICAS" o "CRUCES SOLARES"</a>. Dejando a un lado su <b>vida personal</b>, nos centraremos ahora en la futbolística.</p>
+                <p>La temporada de <b>Sr.Antón</b> ha ido de menos a más como la relevancia de <a href="img/Perro.jpg" target="_blank">Pedro Sánchez</a> en el puesto de <b>gobierno</b>. Empezó como un <b>tiro</b>, pero esa <b>bala</b> se fue estabilizando con la aparición de <a href="notcia1.html" target="_blank">Roig Aguado</a>. La <b>afición casareña</b> junto con <a href="https://www.instagram.com/frentepatxaran/?hl=es" target="_blank">"El Frente Patxaran"</a> esperan una gran reaparición de <b>Isco</b> a los <b>terrenos de juego</b>. Después de jugar a penas un partido en los <b>últimos 2 meses</b>, esperemos que <b>nuestro lateral</b> derecho vuelva al verde lo antes posible y con las ganas de volver a conseguir <b>su puesto</b>.</p>
+            </div>
+        </div>
+
+        <!-- Contenedor con los enlaces a la izquierda y derecha -->
+        <div class="links-container">
+            <!-- Enlace para volver a la página principal -->
+            <div class="alink">
+                <a href="index.html">← Página principal</a>
+            </div>
+            <!-- Enlace para leer la siguiente noticia -->
+            <div class="alink">
+                <a href="noticia3.html">→ Siguiente noticia</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar u ocultar la imagen adicional al hacer clic en "Hola gente"
+        function mostrarImagen() {
+            var imagen = document.getElementById('imagenExtra');
+            if (imagen.style.display === "none" || imagen.style.display === "") {
+                imagen.style.display = "block";
+            } else {
+                imagen.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
